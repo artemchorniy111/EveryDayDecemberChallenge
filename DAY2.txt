@@ -1,0 +1,49 @@
+///////////////////DAY2DAY2DAY2DAY2DAY2DAY2DAY2DAY2////////////////////
+
+function testit(a,b){
+   let newA = [];
+   let newFake = []
+   let newB = [];
+   for(let i = 0; i < a.length; i++){
+     if(newA.includes(a[i])){
+      newFake.push(a[i])
+     }else{
+     newA.push(a[i]);
+     }
+   }
+   for(let i = 0; i < b.length; i++){
+     if(newB.includes(b[i])){
+      newFake.push(b[i])
+     }else{
+     newB.push(b[i]);
+     }
+   }
+   let res = newA.concat(newB).sort(function(a, b) {
+     return a - b;
+ });
+   console.log(res);
+   // console.log(newFake)
+ }
+
+//  testit([1, 2, 3], [4, 4, 4])
+ 
+ ////////-----------//////////
+ function solution(str){
+   let newStr = '';
+    for(let i = 0; i < str.length; i+=2){
+      if(str[i+1] !== undefined){
+      newStr += str[i] + str[i + 1] + '/';
+      }
+      if(str[i+1] === undefined){
+         newStr += str[i] + '_' + '/';
+      }
+    }
+    newStr = newStr.replace(/\s+/g, '');
+    let res  = newStr.split('/');
+   //  console.log(newStr.length);
+   res.pop()
+    console.log(res);
+ }
+
+ solution('abcd')
+ solution('abcde')
