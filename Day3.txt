@@ -1,0 +1,68 @@
+function zeckendorf(n) {
+  // let prev = 1;
+  // let next = 1;
+  // let res = 0;
+  let arr = [];
+  let finall = [];
+  let numM = [];
+  let lastT = 0;
+  let lastArr;
+
+  if(n === 0){
+    return [];
+  }
+  if(n < 0){
+    return null;
+  }
+  else{
+    let prev = 0;
+    let next = 1;
+    let res = 0;
+    while(n >= 1){    
+    while (res < n){
+      res = prev + next;
+      arr.push(res);
+      prev = next;
+      next = res;
+      // 1 1 2 3 5 8 
+    }
+    
+      res = 0
+      prev = 0;
+      next = 1;
+    
+    if(arr.length === 2){ 
+      arr.pop(); 
+      // console.log('1');
+      lastArr = arr[arr.length - 1];
+      // console.log(' ===2  >>> ' + lastArr)
+    }
+    if(arr.length > 2){
+    arr.pop();
+    lastArr = arr[arr.length - 1];
+    // console.log(lastArr)
+    }
+    
+    finall.push(lastArr);
+
+    let myNum = n - lastArr;
+
+    n = myNum;
+
+    numM.push(n);
+    }
+    numM.pop()
+    lastT = numM[numM.length - 1];
+
+  finall.pop()
+  finall.push(lastT)
+  console.log(finall);
+  }
+  // console.log(finall);
+}
+  
+//   return [] || null ;
+
+
+zeckendorf(8262)
+zeckendorf(100)
