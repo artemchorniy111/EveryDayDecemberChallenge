@@ -49,6 +49,7 @@ function zeckendorf(n) {
 
     n = myNum;
 
+
     numM.push(n);
     }
     numM.pop()
