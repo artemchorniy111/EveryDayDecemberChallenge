@@ -1,0 +1,25 @@
+///
+function solution(str){
+  return str.split('').reverse().join('');
+}
+
+/// Sum Numbers
+function sum (numbers) {
+  let res = 0;
+  if(numbers.length === 0){
+    return 0
+  }else{
+  for(let i = 0; i < numbers.length; i++){
+    res+=numbers[i]
+  } 
+    return res
+  }
+};
+///
+function enough(cap, on, wait) {
+  if(cap >= on + wait){
+    return 0;
+  }else{
+    return Math.abs(cap - on - wait)
+    }
+}
