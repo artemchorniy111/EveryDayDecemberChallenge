@@ -1,0 +1,126 @@
+*,*::after,*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+
+.container {
+    width: 1170px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.container .box {
+    position: relative;
+    width: 275px;
+    height: 275px;
+    background-color: #000;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.container:hover .box {
+    transform: rotateY(25deg);
+}
+
+.container:hover ~ .box {
+    transform: rotateY(-25deg);
+} 
+
+.container .box:hover {
+    transform: rotateY(0deg) scale(1.25);
+    z-index: 1;
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
+}
+
+.container .box .imgBox {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 100%;
+}
+
+.container .box .imgBox::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4158d0;
+    background-image: linear-gradient(43deg,
+    #4158d0 0%
+    #c850c0 46%
+    #ffcc70 100%
+    );
+    z-index: 1;
+    opacity: 0;
+    transition: 0.4s;
+    mix-blend-mode: multiply;
+}
+
+.container .box:hover .imgBox:before {
+    opacity: 1;
+}
+
+.container .box .imgBox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.container .box .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+}
+
+.container .box .content h2 {
+    margin: 0;
+    text-transform: uppercase;
+    transition: 0.4s;
+    margin-bottom: 4px;
+    font-size: 20px;
+    transform: translateY(200px);
+}
+
+.container .box .content p {
+    text-transform: uppercase;
+    transition: 0.4s;
+    font-size: 14px;
+    transform: translateY(200px);
+}
+
+.container .box:hover .content h2 {
+    transform: translateY(0px);
+    transition-delay: 0.4s;
+}
+
+.container .box:hover .content p {
+    transform: translateY(0px);
+    transition-delay: 0.5s;
+}
