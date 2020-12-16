@@ -1,0 +1,16 @@
+function removeRotten(bagOfFruits){
+  let newArr = [];
+  if(bagOfFruits === null || bagOfFruits === undefined || bagOfFruits.length === 0){
+    return []
+  }
+  for(let i = 0; i < bagOfFruits.length; i++){
+    if(bagOfFruits[i].includes("rotten")){
+      console.log(bagOfFruits[i])
+      let res = bagOfFruits[i].slice(6);
+      newArr.push(res.toLowerCase());
+    }else{
+      newArr.push(bagOfFruits[i])
+      }
+  }
+  return newArr;
+}
