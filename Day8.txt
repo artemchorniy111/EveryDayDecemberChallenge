@@ -1,0 +1,24 @@
+use mydatabase
+
+db.users.insertOne/Many
+({
+// _id:N,
+ "name":"John",
+ "age":22,
+ "hasCar":true,
+ "favColor":["Green", "Black"]
+})
+
+db.users.find()
+db.users.find({}, {_id: 0}).limit(2)
+db.users.find({}, {_id: 0}).sort({age: -1})
+db.users.find({name: "Jack"}, {_id: 0}) 
+db.users.find({$or: [{name: "Mike"}, {age: 23}]}, {_id: 0}) //OR
+db.users.find({$or: [{name: "Mike"}, {age: {$lt: 22}}]}, {_id: 0}) //lt less then// gh - great then
+//$gte/lte - then+equal
+//$ne: - not equalt 
+db.users.find({name: {$in: ["Mike", "John"]}}, {_id: 0}) // in
+db.users.find({name: {$nin: ["Mike", "John"]}}, {_id: 0}) // not in
+db.users.find({ pass: {$exists: true} }, {_id: 0}) // вивести де поле пасс існує
+db.users.find({ favColors: {$size: 2} }, {_id: 0})
+db.users.find({ "favColors.1": "Orange" }, {_id: 0})
